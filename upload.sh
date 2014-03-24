@@ -3,5 +3,11 @@
 file=$(find -L . -name "*.jar");
 
 if echo "$file" | grep -v -q "SNAPSHOT"; then
-    curl -X POST -F "commit=$1" -F "type=$2" -F "key=$BUKKIT_API_KEY" -F "file=@$file" http://pc-serv.ca/ci_upload.php;
+    if echo "$file" | grep -v -q "BETA"; then
+        type="r"
+    else
+        type="b"
+    fi
+    
+    curl -X POST -F "commit=$TRAVIS_COMMIT" -F "file=@$file" -F "file_type=$type" -F "job=$TRAVIS_BUILD_NUMBER" -F "key=$BUKKIT_API_KEY" http://pc-serv.ca/ci_upload.php;
 fi
