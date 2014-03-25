@@ -9,5 +9,5 @@ if echo "$file" | grep -v -q "SNAPSHOT"; then
         type="b"
     fi
     
-    curl -X POST -F "branch=$TRAVIS_BRANCH" -F "commit=$TRAVIS_COMMIT" -F "file=@$file" -F "file_type=$type" -F "job=$TRAVIS_BUILD_NUMBER" -F "key=$BUKKIT_API_KEY" http://q0r.ca/ci/upload.php;
+    curl -X POST -F "api_key=$BUKKIT_API_KEY" -F "branch=$TRAVIS_BRANCH" -F "commit=$TRAVIS_COMMIT" -F "file=@$file" -F "file_type=$type" -F "job=$TRAVIS_BUILD_NUMBER" http://q0r.ca/ci/upload.php;
 fi
