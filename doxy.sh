@@ -8,8 +8,6 @@ if [[ $TRAVIS_REPO_SLUG = "Q0rDev/MChat" ]]; then
   
   ./target/doxygen-*/bin/doxygen ${TRAVIS_BUILD_DIR}/target/travis/Doxyfile & wait
   
-  COMMIT_MESSAGE=$(curl -sS -X POST -F "commit=$TRAVIS_COMMIT" http://q0r.ca/ci/commit.php) & wait
-  
   cd ${TRAVIS_BUILD_DIR}/target/doxy/
   
   git config --global user.email "MiracleM4n@gmail.com"
@@ -17,6 +15,6 @@ if [[ $TRAVIS_REPO_SLUG = "Q0rDev/MChat" ]]; then
   git config --global push.default simple
   
   git add --all
-  git commit -m "${COMMIT_MESSAGE}"
+  git commit -m "$(curl -sS -X POST -F "commit=${TRAVIS_COMMIT:0:7}" http://q0r.ca/ci/commit.php)"
   git push https://Q0r-JD:${GH_PASSWORD}@github.com/Q0rDev/q0rdev-javadocs
 fi
