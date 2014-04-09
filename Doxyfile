@@ -826,14 +826,15 @@ RECURSIVE              = YES
 # run.
 
 EXCLUDE                = $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/MChat.java \
-                         $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/metrics/ \
                          $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/commands/ \
                          $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/events/ \
+                         $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/metrics/ \
+                         $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/updater/ \
                          $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/variables/vars/ \
-                         $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/configs/censor/ \
-                         $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/configs/info/ \
-                         $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/configs/config/ConfigYml.java \
-                         $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/configs/locale/LocaleYml.java
+                         $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/yml/censor/ \
+                         $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/yml/info/ \
+                         $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/yml/config/ConfigYml.java \
+                         $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/yml/locale/LocaleYml.java
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded
