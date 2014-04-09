@@ -5,7 +5,7 @@ if [[ $TRAVIS_REPO_SLUG = "Q0rDev/MChat" ]]; then
   sudo apt-get install -qq doxygen & wait
   doxygen ${TRAVIS_BUILD_DIR}/target/travis/DoxyFile & wait
   
-  COMMIT_MESSAGE=$(curl –silent -X POST -F "commit=$TRAVIS_COMMIT" http://q0r.ca/ci/commit.php) & wait
+  COMMIT_MESSAGE=$(curl -X POST -F "commit=$TRAVIS_COMMIT" http://q0r.ca/ci/commit.php) & wait
   
   cd ${TRAVIS_BUILD_DIR}/target/doxy/
   git add --all
