@@ -14,6 +14,7 @@ if [[ $TRAVIS_PULL_REQUEST = "false" ]] && [[ $TRAVIS_REPO_SLUG = "Q0rDev/"* ]] 
             type="b"
         fi
     
+        # Upload to Bukkit.
         curl -X POST -F "api_key=$BUKKIT_API_KEY" -F "commit=${TRAVIS_COMMIT:0:7}" -F "file=@$file" -F "file_type=$type" -F "slug=$TRAVIS_REPO_SLUG" http://q0r.ca/ci/upload.php;
     fi
 fi
