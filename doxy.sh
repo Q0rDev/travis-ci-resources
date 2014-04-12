@@ -21,5 +21,6 @@ if [[ $TRAVIS_PULL_REQUEST = "false" ]] && [[ $TRAVIS_REPO_SLUG = "Q0rDev/MChat"
   # Push to Github. 
   git add --all
   git commit -m "$(curl -sS -X POST -F "commit=${TRAVIS_COMMIT:0:7}" http://q0r.ca/ci/commit.php)"
-  git push https://Q0r-JD:${GH_PASSWORD}@github.com/Q0rDev/q0rdev-javadocs > /dev/null
+  git push https://Q0r-JD:${GH_PASSWORD}@github.com/Q0rDev/q0rdev-javadocs --quiet > /dev/null
+  
 fi
