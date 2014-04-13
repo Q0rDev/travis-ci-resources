@@ -827,7 +827,7 @@ RECURSIVE              = YES
 
 EXCLUDE                = $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/MChat.java \
                          $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/commands/ \
-                         $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/events/ \
+                         $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/events/bukkit/ \
                          $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/metrics/ \
                          $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/updater/ \
                          $(TRAVIS_BUILD_DIR)/src/main/java/ca/q0r/mchat/variables/vars/ \
