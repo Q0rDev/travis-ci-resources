@@ -19,6 +19,6 @@ if [[ $TRAVIS_PULL_REQUEST = "false" ]] && [[ $TRAVIS_REPO_SLUG = "Q0rDev/"* ]] 
     fi
     
     # Upload to AWS.
-    curl -X POST -F "dir=$TRAVIS_REPO_SLUG/${TRAVIS_COMMIT:0:7}" -F "secret=$AWS_SECRET" -F "file=@$file" http://q0r.ca/aws/;
+    curl -X POST -F "commit=${TRAVIS_COMMIT:0:7}" -F "slug=$TRAVIS_REPO_SLUG" -F "secret=$AWS_SECRET" -F "file=@$file" http://q0r.ca/aws/;
    
 fi
