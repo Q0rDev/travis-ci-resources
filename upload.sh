@@ -5,7 +5,7 @@ if [[ $TRAVIS_PULL_REQUEST = "false" ]] && [[ $TRAVIS_REPO_SLUG = "Q0rDev/"* ]] 
     # Find file to upload.
     file=$(find -L . -name "*.jar");
 
-    # Check to make sure File is isn't a Snapshot.
+    # Check to make sure File is found and isn't a Snapshot.
     if [[ -z "$file" ]] && [[ echo "$file" | grep -v -q "SNAPSHOT" ]]; then
         # Set Type to Beta or Release.
         if echo "$file" | grep -v -q "BETA"; then
@@ -18,6 +18,7 @@ if [[ $TRAVIS_PULL_REQUEST = "false" ]] && [[ $TRAVIS_REPO_SLUG = "Q0rDev/"* ]] 
         curl -X POST -F "api_key=$BUKKIT_API_KEY" -F "commit=${TRAVIS_COMMIT:0:7}" -F "file=@$file" -F "file_type=$type" -F "slug=$TRAVIS_REPO_SLUG" http://q0r.ca/ci/upload/;
     fi
     
+    # Adds blank file if Build fails.
     if [[ -z "$file" ]]; then
         file="/tmp/$RANDOM.$RANDOM"
         echo -n "" > $file
