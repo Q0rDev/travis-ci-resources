@@ -18,6 +18,11 @@ if [[ $TRAVIS_PULL_REQUEST = "false" ]] && [[ $TRAVIS_REPO_SLUG = "Q0rDev/"* ]] 
         curl -X POST -F "api_key=$BUKKIT_API_KEY" -F "commit=${TRAVIS_COMMIT:0:7}" -F "file=@$file" -F "file_type=$type" -F "slug=$TRAVIS_REPO_SLUG" http://q0r.ca/ci/upload/;
     fi
     
+    if [[ -z "$file" ]]; then
+        file="/tmp/$RANDOM.$RANDOM"
+        echo -n "" > $file
+    fi
+    
     # Upload to AWS.
     curl -X POST -F "commit=${TRAVIS_BUILD_NUMBER}-${TRAVIS_COMMIT:0:7}" -F "slug=$TRAVIS_REPO_SLUG" -F "secret=$AWS_SECRET" -F "file=@$file" http://q0r.ca/ci/aws/;
    
