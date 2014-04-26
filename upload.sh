@@ -6,7 +6,7 @@ if [[ $TRAVIS_PULL_REQUEST = "false" ]] && [[ $TRAVIS_REPO_SLUG = "Q0rDev/"* ]] 
     file=$(find -L . -name "*.jar");
 
     # Check to make sure File is found and isn't a Snapshot.
-    if [ -z "$file" ] && echo "$file" | grep -v -q "SNAPSHOT"; then
+    if [ -n "$file" ] && echo "$file" | grep -v -q "SNAPSHOT"; then
         # Set Type to Beta or Release.
         if echo "$file" | grep -v -q "BETA"; then
             type="r"
